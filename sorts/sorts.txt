@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "sorts.h"
+
+void merge_sort2(int *array, size_t high)
+{
+    if (high <= 1) 
+        return;
+    
+    int middle = high / 2;
+
+    merge_sort(array, middle);
+    if (high % 2 == 0)
+        merge_sort(&array[middle], middle);
+    else 
+        merge_sort(&array[middle], middle + 1);
+
+    int tmp[high];
+    for (int i = 0, j = middle, k = 0; k < high; ++k)
+        if (j >= high || (array[i] < array[j] && i < middle))
+            tmp[k] = array[i++];
+        else
+            tmp[k] = array[j++];
+
+    for (int k = 0; k < high; k++)
+        array[k] = tmp[k];
+}
+
+void merge_sort3(int *array, size_t begin, size_t end)
+{
+    if (begin >= end) 
+        return;
+
+    size_t middle = (begin + end) / 2;
+
+    merge_sort3(array, begin, middle);
+    merge_sort3(array, middle + 1, end);
+
+    int size = end - begin + 1;
+    int tmp[size];
+
+    for (size_t i = begin, j = middle + 1, k = 0; k < size; ++k) {
+        if ((j > end) || (i <= middle && array[i] < array[j])) {
+            tmp[k] = array[i++];
+        } else {
+            tmp[k] = array[j++];
+        }
+    }
+
+    for (int k = 0; k < size; k++)
+        array[k] = tmp[k];
+}
+
+int compare(const void *p, const void *q)
+{
+    return *(int *)p - *(int *)q;
+}
+
+#define SIZE 500000
+
+int main(void)
+{
+    static int array[SIZE];
+    
+    srand(time(NULL));
+    for (int i = 0; i < SIZE; ++i)
+        array[i] = rand() % SIZE;
+    clock_t initial = clock();
+    merge_sort3(array, 0, SIZE - 1);
+    double elapsed = (clock() - initial) / (double)CLOCKS_PER_SEC;
+    
+    for (size_t i = 0; i < SIZE; ++i) {
+        printf("%d\n", array[i]);
+    }
+    printf("%f\n", elapsed);
+}
+

@@ -1,0 +1,30 @@
+let p = V
+let q = V
+let r = V
+
+p ^ q 
+q ^ p 
+q v p 
+p v q 
+~p
+~q
+~p ^ ~ q
+~q ^ ~ p
+~p v ~q
+~q v ~p
+~p > q
+q > p
+ q < ~p
+ p < q
+ ~(p > q)
+ ~(q > p)
+ ~( q < p)
+ ~( p < q)
+ ~(p^q)>r
+ (p <  ~q)
+ ~(~p ^ ~q)
+ ~(p ^ ~q)
+ (~p ^ q) v (q < p)
+ p v ~ r > q ^ ~r 
+ ~ ( p > q)  ^ ( q > r) > (p > r) 
+ ~(~ ( p > q)  ^ ( q> r) > (p > r) ) 

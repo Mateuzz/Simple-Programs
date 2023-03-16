@@ -1,0 +1,52 @@
+Tokens 
+    ^
+    v
+    ]
+
+    >
+    <
+
+    ~
+
+expression:
+    term
+    expression > term
+    expression < term
+term:
+    primary
+    primary ^ term
+    primary v term
+    primary ] term
+unit:
+    primary
+    ~unit
+primary
+    var
+    (expression)
+var
+    letter       >>
+
+
+class Token {
+public:
+    char kind;
+    bool value;
+
+    Token(char ch) : kind(ch), value(false) {}
+    Token(char cd, bool value) : kind(ch) : value(value) {} 
+};
+
+class TokenStream {
+public:
+  void putback(char ch);
+  TokenStream() : buff(Token('\0'), full(false);
+private:
+    bool full;
+    Token buff;
+};
+
+Class Var {
+public:
+    char letter;
+    bool value;
+}

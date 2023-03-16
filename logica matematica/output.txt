@@ -1,0 +1,35 @@
+Operadores: , '~' (nao), '^' (e), 'v' (ou), '|' (xor), '>' (condicional), '<' (bicondicional), '('parenteses')'
+Digite ';' ou dê enter para ver o resultado
+Criar variavel: 'let variavel_nome = expressao'
+Usar (V) ou (F) para as proposições lógicas diretas
+> = Verdade
+> = Verdade
+> = Verdade
+
+> = Verdade
+> = Verdade
+> = Verdade
+> = Verdade
+> = Falsidade
+> = Falsidade
+> = Falsidade
+> = Falsidade
+> = Falsidade
+> = Falsidade
+> = Verdade
+> = Verdade
+> = Falsidade
+> = Verdade
+> = Falsidade
+> = Falsidade
+> = Falsidade
+> = Falsidade
+> = Verdade
+> = Falsidade
+> = Verdade
+> = Verdade
+> = Verdade
+> = Falsidade
+> = Verdade
+> = Falsidade
+> 
