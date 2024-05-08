@@ -1,4 +1,10 @@
-// merge_sort(array, tamanho)
+#pragma once
+
+#include <stddef.h>
+#include <string.h>
+#include <limits.h>
+#include <stdlib.h>
+
 void merge_sort(int *array, size_t high);
 //quick_sort(array, &array[tamanho])
 void quick_sort(int *low, int *high);
@@ -96,3 +102,32 @@ int *split(int *low, int *high)
     *high = pivot;
     return high;
 }
+
+void qsort4(int *x, int l, int u) {
+    int n = rand() % (u - l + 1) + l;
+    int tmp = x[n];
+    x[n] = x[l];
+    x[l] = tmp;
+    int t = x[l];
+    int i = l;
+    int j = u + 1;
+    for (;;) {
+        while (i <= u && x[i] < t)
+            ++i;
+        while (x[j] > t)
+            --j;
+        if (i > j)
+            break;
+        tmp = x[i];
+        x[i] = x[j];
+        x[j] = tmp;
+    }
+
+    tmp = x[l];
+    x[l] = x[j];
+    x[j] = tmp;
+
+    qsort4(x, l, j-1);
+    qsort4(x, j+l, u);
+}
+
